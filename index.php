@@ -20,6 +20,15 @@
 		echo $cell = $_POST[ 'cell' ];
 		echo $username = $_POST[ 'username' ];
 
+		/**
+		 * Check Email
+		 * @coderstrustbd.com
+		 */
+		$email_arr = explode('@',$email);
+		print_r($email_arr);
+		$inst_mail = end($email_arr);
+		print_r($inst_mail);
+
 
 		if(empty($name)){
 			$err['name'] = "<p style= \"color:red\">*Required</p>";
@@ -40,6 +49,9 @@
 		}
 		else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false ){
 		$msg = "<p class = \" alert alert-warning\">Invalid Email Address<button class= \"close \" data-dismiss=\"alert\">&times;</button></p>";
+		}
+		else if($inst_mail != 'coderstrustbd.com'){
+			$msg = "<p class = \" alert alert-info\">Only Coderstrust Email Granted<button class= \"close \" data-dismiss=\"alert\">&times;</button></p>";
 		}
 
 		else{
