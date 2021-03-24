@@ -29,6 +29,8 @@
 		$inst_mail = end($email_arr);
 		print_r($inst_mail);
 
+		$cell_start= substr($cell, 0, 3);
+
 
 		if(empty($name)){
 			$err['name'] = "<p style= \"color:red\">*Required</p>";
@@ -52,6 +54,9 @@
 		}
 		else if($inst_mail != 'coderstrustbd.com'){
 			$msg = "<p class = \" alert alert-info\">Only Coderstrust Email Granted<button class= \"close \" data-dismiss=\"alert\">&times;</button></p>";
+		}
+		else if(in_array($cell_start,['017','018','019','015','016','013','014'])== false){
+			$msg = "<p class = \" alert alert-info\">Invalid Cell Number ! !<button class= \"close \" data-dismiss=\"alert\">&times;</button></p>";
 		}
 
 		else{
